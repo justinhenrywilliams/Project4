@@ -3,78 +3,482 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Justin Williams - E-Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Justin Williams | E-Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            color: #2c3e50;
+            line-height: 1.6;
+            background: #f8f9fa;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 30px;
+        }
+
+        .logo {
+            color: white;
+            font-size: 1.3em;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 35px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+            font-size: 15px;
+            font-weight: 500;
+            transition: all 0.3s;
+            padding: 8px 0;
+            border-bottom: 2px solid transparent;
+        }
+
+        .nav-links a:hover {
+            border-bottom: 2px solid white;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 100px 30px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 4em;
+            font-weight: 800;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .hero .subtitle {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            opacity: 0.95;
+        }
+
+        .hero .course {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 2.5em;
+            color: #667eea;
+            margin-bottom: 15px;
+            font-weight: 800;
+        }
+
+        .section-subtitle {
+            font-size: 1.2em;
+            color: #5a67d8;
+            margin-bottom: 40px;
+        }
+
+        #about {
+            background: white;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 50px;
+            align-items: start;
+        }
+
+        .about-image {
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+            transition: transform 0.3s;
+        }
+
+        .about-image:hover {
+            transform: scale(1.02);
+        }
+
+        .about-text p {
+            font-size: 1.1em;
+            line-height: 1.9;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        #project1 {
+            background: #f8f9fa;
+        }
+
+        .project-card {
+            background: white;
+            padding: 50px;
+            border-radius: 15px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+            margin-bottom: 40px;
+        }
+
+        .project-card h3 {
+            font-size: 2em;
+            color: #667eea;
+            margin-bottom: 20px;
+        }
+
+        .project-card .meta {
+            color: #5a67d8;
+            font-style: italic;
+            margin-bottom: 30px;
+            font-size: 1.05em;
+        }
+
+        .project-card h4 {
+            font-size: 1.5em;
+            color: #2c3e50;
+            margin: 30px 0 15px 0;
+        }
+
+        .project-card p {
+            font-size: 1.05em;
+            line-height: 1.8;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        #artifacts {
+            background: white;
+        }
+
+        .artifacts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 40px;
+        }
+
+        .artifact-item {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            padding: 40px;
+            border-radius: 15px;
+            color: white;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+            text-decoration: none;
+            display: block;
+        }
+
+        .artifact-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+        }
+
+        .artifact-item h3 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            color: white;
+        }
+
+        .artifact-item p {
+            font-size: 1.05em;
+            line-height: 1.6;
+            color: white;
+        }
+
+        .artifact-detail {
+            background: white;
+            padding: 60px;
+            border-radius: 15px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+            margin-top: 40px;
+        }
+
+        .artifact-detail h3 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 2.2em;
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .artifact-detail .author {
+            color: #5a67d8;
+            font-style: italic;
+            margin-bottom: 30px;
+            font-size: 1.05em;
+        }
+
+        .artifact-detail h4 {
+            font-size: 1.6em;
+            color: #2c3e50;
+            margin: 35px 0 15px 0;
+            font-weight: 600;
+        }
+
+        .artifact-detail p {
+            font-size: 1.05em;
+            line-height: 1.9;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        .back-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            margin-bottom: 30px;
+            transition: transform 0.3s;
+            font-weight: 500;
+        }
+
+        .back-button:hover {
+            transform: translateY(-2px);
+        }
+
+        .infographic-image {
+            max-width: 600px;
+            margin: 0 auto;
+            display: block;
+            border-radius: 10px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        footer {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 50px 30px;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 25px;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 15px;
+            transition: opacity 0.3s;
+        }
+
+        .footer-links a:hover {
+            opacity: 0.8;
+        }
+
+        .copyright {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5em;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                gap: 15px;
+                font-size: 13px;
+            }
+
+            .artifacts-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
 </head>
 <body>
-    <!-- Navigation Bar -->
-    <nav>
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about-me">About Me</a></li>
-            <li><a href="#project1">Project 1</a></li>
-            <li><a href="#article1">Article 1</a></li>
-            <li><a href="#article2">Article 2</a></li>
-            <li><a href="#reflection">Reflection</a></li>
-        </ul>
-    </nav>
+    <header>
+        <nav>
+            <div class="logo">Justin Williams</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#project1">Project 1</a></li>
+                <li><a href="#artifacts">Artifacts</a></li>
+                <li><a href="#reflection">Reflection</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    <!-- Home Section -->
-    <section id="home">
-        <h1>Welcome to My E-Portfolio</h1>
-        <p>Hello! My name is Justin Williams, a Finance major with a passion for Real Estate. This e-Portfolio will showcase my academic projects and reflections, highlighting my growth in ENC 2135.</p>
+    <section class="hero" id="home">
+        <h1>Justin Williams</h1>
+        <p class="subtitle">Finance Student & Real Estate Enthusiast</p>
+        <p class="course">E-Portfolio for ENC2135 | FSU Valencia Study Abroad Program</p>
     </section>
 
-    <!-- About Me Section -->
-    <section id="about-me">
-        <h2>About Me</h2>
-        <img src="https://imgur.com/a/9LW04GY" alt="Justin Williams" class="profile-pic">
-        <p>I am 18 years old, from Miami, Florida. Currently enrolled in FSU, studying Finance and Real Estate. My mom owns a real estate brokerage, and I have been surrounded by this industry since a young age.</p>
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <p class="section-subtitle">Getting to know Justin Williams</p>
+            <div class="about-content">
+                <div>
+                    <img src="https://imgur.com/a/9LW04GY" alt="Justin Williams" class="about-image">
+                </div>
+                <div class="about-text">
+                    <p>Welcome to my e-portfolio! My name is Justin Williams, and I'm an 18-year-old Finance major from Miami, Florida, currently studying at Florida State University. This semester, I've had the incredible opportunity to study abroad in Valencia, Spain, where I've been enrolled in the ENC2135 course that inspired this digital portfolio.</p>
+                    
+                    <p>Growing up in Miami, I was immersed in the world of real estate from an early age. My mother owns Miami Connections Realty, a real estate brokerage that exposed me to everything from property showings and negotiations to deal closings. This firsthand experience sparked my passion for both finance and real estate, and I've been fascinated by how these industries intersect and evolve with technology.</p>
+                    
+                    <p>I'm particularly interested in how digital transformation is reshaping the real estate and finance sectors. Social media, data analytics, and emerging technologies are revolutionizing how professionals connect, communicate, and collaborate in these fields. Through this portfolio, you'll find research projects, articles, and creative work that explore these themes while demonstrating my growth as both a student and aspiring professional.</p>
+                    
+                    <p>This e-portfolio showcases the academic and creative work I've completed during my time in Valencia, reflecting not only my coursework but also the unique perspective I've gained from studying abroad and experiencing European culture firsthand.</p>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <!-- Project 1 Section -->
     <section id="project1">
-        <h2>Project 1: Social Media and Technology in Real Estate</h2>
-        <h3>Introduction</h3>
-        <p>Real estate is not just a world where properties are purchased and sold, but it’s also a vibrant discourse community...</p>
+        <div class="container">
+            <h2 class="section-title">Project 1: Research Paper</h2>
+            <p class="section-subtitle">Exploring Social Media's Impact on Real Estate</p>
+            <div class="project-card" style="cursor: pointer;" onclick="showFullProject()">
+                <h3>In what ways does social media and technology influence how real estate investors/brokers connect, communicate, and collaborate?</h3>
+                <p class="meta">By Justin Williams | ENC-2135 | Professor Kay</p>
+                
+                <p style="font-style: italic; color: #667eea; margin-top: 20px;">Click to read the full research paper →</p>
+            </div>
 
-        <h3>Methods</h3>
-        <p>The research for this project was comprehensive, including Peer-Reviewed Scholarly Articles, Industry publications...</p>
+            <!-- Full Project Detail -->
+            <div id="project1-detail" class="artifact-detail hidden">
+                <a href="javascript:void(0)" onclick="hideFullProject()" class="back-button">← Back to Summary</a>
+                
+                <h3>In what ways does social media and technology influence how real estate investors/brokers connect, communicate, and collaborate?</h3>
+                <p class="author">By Justin Williams | ENC-2135 | Professor Kay</p>
+                
+                <h4>Introduction</h4>
+                <p>Real estate is not just a world where properties are purchased and sold, but it's also a vibrant discourse community that possess specialized language...</p>
+                
+                <h4>Methods</h4>
+                <p>The process of research for my project was comprehensive, including Peer-Reviewed Scholarly Articles...</p>
+                
+                <h4>Results</h4>
+                <p>The findings in my research provide strong evidence that social media and technology have critically changed how real estate investors...</p>
 
-        <h3>Results</h3>
-        <p>The findings in my research provide strong evidence that social media and technology have critically changed the way real estate investors, brokers...</p>
+                <h4>Conclusion</h4>
+                <p>Real estate investment and brokerage have always been driven professions, but the rise of social media and digital technologies...</p>
 
-        <h3>Conclusion</h3>
-        <p>Real estate investment and brokerage have always been driven professions, but the rise of social media and digital technologies...</p>
-
-        <h3>Annotated Bibliography</h3>
-        <ul>
-            <li>Tuzuner, Deniz. “Effects of Social Media in the Real Estate Market: A Systematic Literature Review.”</li>
-            <li>Zinneha, Ebru Jeni, and Mukerrem Yilmaz. “The Impact of Social Media Marketing in the Real Estate Sector on Consumer Behavior...”</li>
-        </ul>
+                <h4>Annotated Bibliography</h4>
+                <ul>
+                    <li>Tuzuner, Deniz. “Effects of Social Media in the Real Estate Market: A Systematic Literature Review.”</li>
+                    <li>Zinneha, Ebru Jeni, and Mukerrem Yilmaz. “The Impact of Social Media Marketing in the Real Estate Sector on Consumer Behavior...”</li>
+                </ul>
+            </div>
+        </div>
     </section>
 
-    <!-- Article 1: Misinformation -->
-    <section id="article1">
-        <h2>Article 1: The Cost of Misinformation in Real Estate Listings</h2>
-        <p>In the modern era of real estate, buyers and sellers face a serious issue: misinformation in property listings...</p>
+    <section id="artifacts">
+        <div class="container">
+            <h2 class="section-title">Artifacts</h2>
+            <p class="section-subtitle">Creative and Academic Work</p>
+            
+            <div class="artifacts-grid" id="artifacts-grid">
+                <div class="artifact-item" onclick="showArtifact('artifact1-detail')">
+                    <h3>📄 Artifact 1: Article</h3>
+                    <p><strong>The Cost of Misinformation: Why Real Estate Listings Need to be Transparent</strong></p>
+                    <p>An in-depth analysis of deceptive advertising practices in real estate...</p>
+                </div>
+                
+                <div class="artifact-item" onclick="showArtifact('artifact2-detail')">
+                    <h3>📊 Artifact 2: Infographic</h3>
+                    <p><strong>Spotting Misinformation in Real Estate</strong></p>
+                    <p>A visual guide designed to help buyers and sellers identify misleading information...</p>
+                </div>
+            </div>
+
+            <!-- Artifact 1 Detail -->
+            <div id="artifact1-detail" class="artifact-detail hidden">
+                <a href="javascript:void(0)" onclick="showArtifactsGrid()" class="back-button">← Back to Artifacts</a>
+                
+                <h3>The Cost of Misinformation: Why Real Estate Listings Need to be Transparent</h3>
+                <p class="author">By Justin Williams | April 24, 2024</p>
+                <h4>Introduction</h4>
+                <p>In the modern era of the real estate industry...</p>
+                <h4>How Misinformation has affected the Industry</h4>
+                <p>One of the main effects of the deceptive nature of real estate advertising...</p>
+            </div>
+
+            <!-- Artifact 2 Detail -->
+            <div id="artifact2-detail" class="artifact-detail hidden">
+                <a href="javascript:void(0)" onclick="showArtifactsGrid()" class="back-button">← Back to Artifacts</a>
+                <h3>Spotting Misinformation in Real Estate</h3>
+                <p class="author">Infographic by Justin Williams</p>
+                
+                <img src="https://i.imgur.com/k7apWZD.jpg" alt="Spotting Misinformation Infographic" class="infographic-image">
+            </div>
+        </div>
     </section>
 
-    <!-- Article 2: Infographic -->
-    <section id="article2">
-        <h2>Article 2: Spotting Misinformation in Real Estate</h2>
-        <img src="https://imgur.com/a/PYiqitt" alt="Misinformation Infographic" class="infographic">
+    <section id="reflection" style="background: #f8f9fa;">
+        <div class="container">
+            <h2 class="section-title">Reflection</h2>
+            <p class="section-subtitle">Insights from ENC2135</p>
+            <div class="project-card">
+                <p>Throughout the semester in the class ENC 2135, I have been able to cultivate a great deal of skill in terms of my research, writing, and composing processes that have improved my ability to analyze, adapt, and produce work in various genres...</p>
+                <p style="color: #7f8c8d; font-style: italic;">[Reflection content continues]</p>
+            </div>
+        </div>
     </section>
 
-    <!-- Reflection Section -->
-    <section id="reflection">
-        <h2>Reflection</h2>
-        <p>Throughout the semester in the class ENC 2135, I have been able to cultivate a great deal of skill in terms of my research...</p>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <p>Created by Justin Williams | ENC-2135 Portfolio</p>
-    </footer>
-</body>
-</html>
+    <footer id="contact">
+        <div class="footer-content">
+            <h2 style="margin-bottom: 30px; font-size: 2em;">Get In Touch</h2>
+            <div class="footer-links">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
