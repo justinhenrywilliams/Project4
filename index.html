@@ -417,17 +417,8 @@
             <p class="section-subtitle">Getting to know Justin Williams</p>
             <div class="about-content">
                 <div>
-                    <!-- Replace this with your photo -->
-                    <div style="width: 300px; height: 400px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 15px; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);">
-                        <div style="text-align: center; color: white; padding: 20px;">
-                            <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
-                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                                <circle cx="12" cy="7" r="4"></circle>
-                            </svg>
-                            <p style="margin-top: 20px; font-size: 14px;">Your Photo</p>
-                            <p style="font-size: 12px; opacity: 0.8; margin-top: 10px;">Replace this URL in the code:<br/>https://i.imgur.com/cENXvVw.jpeg</p>
-                        </div>
-                    </div>
+                    <!-- Your image with Imgur link -->
+                    <img src="https://imgur.com/a/SjxwFRi" class="about-image" alt="Justin Williams">
                 </div>
                 <div class="about-text">
                     <p>Welcome to my e-portfolio! My name is Justin Williams, and I'm an 18-year-old Finance major from Miami, Florida, currently studying at Florida State University. This semester, I've had the incredible opportunity to study abroad in Valencia, Spain, where I've been enrolled in the ENC2135 course that inspired this digital portfolio.</p>
@@ -437,14 +428,48 @@
         </div>
     </section>
 
-    <!-- Reflection Section -->
-    <section id="reflection" style="background: #f8f9fa;">
+    <section id="artifacts">
         <div class="container">
-            <h2 class="section-title">Reflection</h2>
-            <p class="section-subtitle">Insights from ENC2135</p>
-            <div class="project-card">
-                <p>Throughout the semester in the class ENC 2135, I have been able to cultivate a great deal of skill in terms of my research, writing, and composing processes that have improved my ability to analyze, adapt, and produce work in various genres. Before undertaking the class, I was able to draw upon experience in a variety of genres of writing...</p>
-                <!-- Add all your reflection content here -->
+            <h2 class="section-title">Artifacts</h2>
+            <p class="section-subtitle">Creative and Academic Work</p>
+            
+            <div class="artifacts-grid" id="artifacts-grid">
+                <div class="artifact-item" onclick="showArtifact('artifact1-detail')">
+                    <h3>📄 Artifact 1: Article</h3>
+                    <p><strong>The Cost of Misinformation: Why Real Estate Listings Need to be Transparent</strong></p>
+                    <p>An in-depth analysis of deceptive advertising practices in real estate and the importance of maintaining integrity in property listings. This article explores legal, ethical, and practical considerations for real estate professionals.</p>
+                </div>
+                
+                <div class="artifact-item" onclick="showArtifact('artifact2-detail')">
+                    <h3>📊 Artifact 2: Infographic</h3>
+                    <p><strong>Spotting Misinformation in Real Estate</strong></p>
+                    <p>A visual guide designed to help buyers and sellers identify misleading information in real estate listings, featuring key warning signs and best practices for transparency.</p>
+                </div>
+            </div>
+
+            <!-- Artifact 1 Detail -->
+            <div id="artifact1-detail" class="artifact-detail hidden">
+                <a href="javascript:void(0)" onclick="showArtifactsGrid()" class="back-button">← Back to Artifacts</a>
+                
+                <h3>The Cost of Misinformation: Why Real Estate Listings Need to be Transparent</h3>
+                <p class="author">By Justin Williams | April 24, 2024</p>
+                <!-- Add your artifact content -->
+            </div>
+
+            <!-- Artifact 2 Detail -->
+            <div id="artifact2-detail" class="artifact-detail hidden">
+                <a href="javascript:void(0)" onclick="showArtifactsGrid()" class="back-button">← Back to Artifacts</a>
+                
+                <h3>Spotting Misinformation in Real Estate</h3>
+                <p class="author">Infographic by Justin Williams</p>
+                
+                <!-- Add Imgur Image of Artifact 2 -->
+                <img src="https://imgur.com/a/PYiqitt" class="infographic-image" alt="Spotting Misinformation Infographic">
+                
+                <div style="margin-top: 40px;">
+                    <h4>About This Infographic</h4>
+                    <p>This visual guide was created to help buyers and sellers identify misleading information in real estate listings. The infographic highlights key warning signs including photo editing, overly optimistic descriptions, and the importance of checklists and reviews for verifying listings and protecting against potential scams or misleading information.</p>
+                </div>
             </div>
         </div>
     </section>
