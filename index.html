@@ -1,535 +1,519 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2575.4">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Justin Williams | E-Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            color: #2c3e50;
+            line-height: 1.6;
+            background: #f8f9fa;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 30px;
+        }
+
+        .logo {
+            color: white;
+            font-size: 1.3em;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 35px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+            font-size: 15px;
+            font-weight: 500;
+            transition: all 0.3s;
+            padding: 8px 0;
+            border-bottom: 2px solid transparent;
+        }
+
+        .nav-links a:hover {
+            border-bottom: 2px solid white;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 100px 30px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 4em;
+            font-weight: 800;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .hero .subtitle {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            opacity: 0.95;
+        }
+
+        .hero .course {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 2.5em;
+            color: #667eea;
+            margin-bottom: 15px;
+            font-weight: 800;
+        }
+
+        .section-subtitle {
+            font-size: 1.2em;
+            color: #5a67d8;
+            margin-bottom: 40px;
+        }
+
+        #about {
+            background: white;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 50px;
+            align-items: start;
+        }
+
+        .about-image {
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+            transition: transform 0.3s;
+        }
+
+        .about-image:hover {
+            transform: scale(1.02);
+        }
+
+        .about-text p {
+            font-size: 1.1em;
+            line-height: 1.9;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        #project1 {
+            background: #f8f9fa;
+        }
+
+        .project-card {
+            background: white;
+            padding: 50px;
+            border-radius: 15px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+            margin-bottom: 40px;
+        }
+
+        .project-card h3 {
+            font-size: 2em;
+            color: #667eea;
+            margin-bottom: 20px;
+        }
+
+        .project-card .meta {
+            color: #5a67d8;
+            font-style: italic;
+            margin-bottom: 30px;
+            font-size: 1.05em;
+        }
+
+        .project-card h4 {
+            font-size: 1.5em;
+            color: #2c3e50;
+            margin: 30px 0 15px 0;
+        }
+
+        .project-card p {
+            font-size: 1.05em;
+            line-height: 1.8;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        #artifacts {
+            background: white;
+        }
+
+        .artifacts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 40px;
+        }
+
+        .artifact-item {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            padding: 40px;
+            border-radius: 15px;
+            color: white;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+            text-decoration: none;
+            display: block;
+        }
+
+        .artifact-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+        }
+
+        .artifact-item h3 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            color: white;
+        }
+
+        .artifact-item p {
+            font-size: 1.05em;
+            line-height: 1.6;
+            color: white;
+        }
+
+        .artifact-detail {
+            background: white;
+            padding: 60px;
+            border-radius: 15px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+            margin-top: 40px;
+        }
+
+        .artifact-detail h3 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 2.2em;
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .artifact-detail .author {
+            color: #5a67d8;
+            font-style: italic;
+            margin-bottom: 30px;
+            font-size: 1.05em;
+        }
+
+        .artifact-detail h4 {
+            font-size: 1.6em;
+            color: #2c3e50;
+            margin: 35px 0 15px 0;
+            font-weight: 600;
+        }
+
+        .artifact-detail p {
+            font-size: 1.05em;
+            line-height: 1.9;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        .back-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            margin-bottom: 30px;
+            transition: transform 0.3s;
+            font-weight: 500;
+        }
+
+        .back-button:hover {
+            transform: translateY(-2px);
+        }
+
+        .infographic-image {
+            max-width: 600px;
+            margin: 0 auto;
+            display: block;
+            border-radius: 10px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        footer {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 50px 30px;
+            text-align: center;
+            margin-top: 100px;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 25px;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 15px;
+            transition: opacity 0.3s;
+        }
+
+        .footer-links a:hover {
+            opacity: 0.8;
+        }
+
+        .copyright {
+            font-size: 14px;
+            opacity: 0.95;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5em;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                gap: 15px;
+                font-size: 13px;
+            }
+
+            .artifacts-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+    <script>
+        function showArtifact(artifactId) {
+            document.getElementById('artifacts-grid').classList.add('hidden');
+            document.querySelectorAll('.artifact-detail').forEach(el => {
+                el.classList.add('hidden');
+            });
+            document.getElementById(artifactId).classList.remove('hidden');
+            document.getElementById('artifacts').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function showArtifactsGrid() {
+            document.getElementById('artifacts-grid').classList.remove('hidden');
+            document.querySelectorAll('.artifact-detail').forEach(el => {
+                el.classList.add('hidden');
+            });
+            document.getElementById('artifacts').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function showFullProject() {
+            document.querySelector('#project1 .project-card').classList.add('hidden');
+            document.getElementById('project1-detail').classList.remove('hidden');
+            document.getElementById('project1').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function hideFullProject() {
+            document.querySelector('#project1 .project-card').classList.remove('hidden');
+            document.getElementById('project1-detail').classList.add('hidden');
+            document.getElementById('project1').scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
 </head>
 <body>
-<p class="p1">&lt;!DOCTYPE html&gt;</p>
-<p class="p1">&lt;html lang="en"&gt;</p>
-<p class="p1">&lt;head&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;title&gt;Justin Williams | E-Portfolio&lt;/title&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;link rel="preconnect" href="https://fonts.googleapis.com"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;link rel="preconnect" href="https://fonts.gstatic.com" crossorigin&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;family=Playfair+Display:wght@700;800&amp;display=swap" rel="stylesheet"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;style&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>* {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin: 0;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 0;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>box-sizing: border-box;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>body {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: #2c3e50;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>line-height: 1.6;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background: #f8f9fa;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>header {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 20px 0;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>box-shadow: 0 4px 12px rgba(0,0,0,0.15);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>position: sticky;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>top: 0;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>z-index: 100;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>nav {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>max-width: 1200px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin: 0 auto;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>justify-content: space-between;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>align-items: center;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 0 30px;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.logo {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: white;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 1.3em;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-weight: 600;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>letter-spacing: 0.5px;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.nav-links {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>gap: 35px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>list-style: none;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.nav-links a {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>text-decoration: none;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: white;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 15px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-weight: 500;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>transition: all 0.3s;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 8px 0;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border-bottom: 2px solid transparent;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.nav-links a:hover {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border-bottom: 2px solid white;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.hero {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: white;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 100px 30px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>text-align: center;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.hero h1 {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-family: 'Playfair Display', Georgia, serif;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 4em;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-weight: 800;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 15px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>text-shadow: 2px 2px 4px rgba(0,0,0,0.2);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.hero .subtitle {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 1.5em;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 20px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>opacity: 0.95;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.hero .course {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 1.1em;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>opacity: 0.9;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.container {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>max-width: 1200px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin: 0 auto;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 0 30px;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>section {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 80px 0;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.section-title {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-family: 'Playfair Display', Georgia, serif;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 2.5em;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: #667eea;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 15px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-weight: 800;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.section-subtitle {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 1.2em;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: #5a67d8;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 40px;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>#about {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background: white;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.about-content {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>display: grid;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>grid-template-columns: 300px 1fr;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>gap: 50px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>align-items: start;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.about-image {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>width: 100%;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 15px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>transition: transform 0.3s;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.about-image:hover {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>transform: scale(1.02);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.about-text p {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 1.1em;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>line-height: 1.9;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: #2c3e50;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 20px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>text-align: justify;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>#project1 {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background: #f8f9fa;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.project-card {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background: white;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 50px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 15px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>box-shadow: 0 5px 25px rgba(0,0,0,0.1);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 40px;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.project-card h3 {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 2em;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: #667eea;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 20px;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.project-card .meta {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: #5a67d8;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-style: italic;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 30px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 1.05em;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.project-card h4 {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 1.5em;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: #2c3e50;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin: 30px 0 15px 0;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.project-card p {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 1.05em;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>line-height: 1.8;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: #2c3e50;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 20px;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>#artifacts {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background: white;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.artifacts-grid {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>display: grid;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));</p>
-<p class="p1"><span class="Apple-converted-space">            </span>gap: 40px;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.artifact-item {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 40px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 15px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: white;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>transition: transform 0.3s, box-shadow 0.3s;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>cursor: pointer;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>text-decoration: none;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>display: block;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.artifact-item:hover {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>transform: translateY(-10px);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>box-shadow: 0 15px 35px rgba(0,0,0,0.2);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.artifact-item h3 {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 1.8em;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 15px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: white;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.artifact-item p {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 1.05em;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>line-height: 1.6;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: white;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.artifact-detail {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background: white;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 60px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 15px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>box-shadow: 0 5px 25px rgba(0,0,0,0.1);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-top: 40px;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.artifact-detail h3 {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-family: 'Playfair Display', Georgia, serif;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 2.2em;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: #667eea;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 10px;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.artifact-detail .author {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: #5a67d8;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-style: italic;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 30px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 1.05em;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.artifact-detail h4 {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 1.6em;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: #2c3e50;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin: 35px 0 15px 0;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-weight: 600;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.artifact-detail p {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 1.05em;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>line-height: 1.9;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: #2c3e50;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 20px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>text-align: justify;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.back-button {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>display: inline-block;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: white;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 12px 30px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 8px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>text-decoration: none;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 30px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>transition: transform 0.3s;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-weight: 500;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.back-button:hover {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>transform: translateY(-2px);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.infographic-image {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>max-width: 600px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin: 0 auto;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>display: block;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 10px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>box-shadow: 0 8px 25px rgba(0,0,0,0.15);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>footer {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: white;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 50px 30px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>text-align: center;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-top: 100px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border-top: 1px solid #e0e0e0;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.footer-content {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>max-width: 1200px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin: 0 auto;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.footer-links {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>justify-content: center;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>gap: 40px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 25px;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.footer-links a {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: white;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>text-decoration: none;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 15px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>transition: opacity 0.3s;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.footer-links a:hover {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>opacity: 0.8;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.copyright {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 14px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>opacity: 0.95;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>@media (max-width: 768px) {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>.hero h1 {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>font-size: 2.5em;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>.about-content {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>grid-template-columns: 1fr;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>.nav-links {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>gap: 15px;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>font-size: 13px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>.artifacts-grid {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>grid-template-columns: 1fr;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.hidden {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>display: none;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;script&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>function showArtifact(artifactId) {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('artifacts-grid').classList.add('hidden');</p>
-<p class="p1"><span class="Apple-converted-space">            </span>document.querySelectorAll('.artifact-detail').forEach(el =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>el.classList.add('hidden');</p>
-<p class="p1"><span class="Apple-converted-space">            </span>});</p>
-<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById(artifactId).classList.remove('hidden');</p>
-<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('artifacts').scrollIntoView({ behavior: 'smooth' });</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>function showArtifactsGrid() {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('artifacts-grid').classList.remove('hidden');</p>
-<p class="p1"><span class="Apple-converted-space">            </span>document.querySelectorAll('.artifact-detail').forEach(el =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>el.classList.add('hidden');</p>
-<p class="p1"><span class="Apple-converted-space">            </span>});</p>
-<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('artifacts').scrollIntoView({ behavior: 'smooth' });</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>function showFullProject() {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>document.querySelector('#project1 .project-card').classList.add('hidden');</p>
-<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('project1-detail').classList.remove('hidden');</p>
-<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('project1').scrollIntoView({ behavior: 'smooth' });</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>function hideFullProject() {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>document.querySelector('#project1 .project-card').classList.remove('hidden');</p>
-<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('project1-detail').classList.add('hidden');</p>
-<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('project1').scrollIntoView({ behavior: 'smooth' });</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</p>
-<p class="p1">&lt;/head&gt;</p>
-<p class="p1">&lt;body&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;header&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;nav&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="logo"&gt;Justin Williams&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;ul class="nav-links"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;li&gt;&lt;a href="#home"&gt;Home&lt;/a&gt;&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;li&gt;&lt;a href="#about"&gt;About&lt;/a&gt;&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;li&gt;&lt;a href="#project1"&gt;Project 1&lt;/a&gt;&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;li&gt;&lt;a href="#artifacts"&gt;Artifacts&lt;/a&gt;&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;li&gt;&lt;a href="#reflection"&gt;Reflection&lt;/a&gt;&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;li&gt;&lt;a href="#contact"&gt;Contact&lt;/a&gt;&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/ul&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/nav&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/header&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;section class="hero" id="home"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;h1&gt;Justin Williams&lt;/h1&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;p class="subtitle"&gt;Finance Student &amp; Real Estate Enthusiast&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;p class="course"&gt;E-Portfolio for ENC2135 | FSU Valencia Study Abroad Program&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;section id="about"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="container"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;h2 class="section-title"&gt;About Me&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="section-subtitle"&gt;Getting to know Justin Williams&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="about-content"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div style="width: 300px; height: 400px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 15px; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div style="text-align: center; color: white; padding: 20px;"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>&lt;path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"&gt;&lt;/path&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>&lt;circle cx="12" cy="7" r="4"&gt;&lt;/circle&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/svg&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;p style="margin-top: 20px; font-size: 14px;"&gt;Your Photo&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;p style="font-size: 12px; opacity: 0.8; margin-top: 10px;"&gt;Replace this URL in the code:&lt;br/&gt;https://i.imgur.com/cENXvVw.jpeg&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="about-text"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p&gt;Welcome to my e-portfolio! My name is Justin Williams, and I'm an 18-year-old Finance major from Miami, Florida, currently studying at Florida State University. This semester, I've had the incredible opportunity to study abroad in Valencia, Spain, where I've been enrolled in the ENC2135 course that inspired this digital portfolio.&lt;/p&gt;</p>
-<p class="p2"><span class="Apple-converted-space">                    </span></p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p&gt;Growing up in Miami, I was immersed in the world of real estate from an early age. My mother owns Miami Connections Realty, a real estate brokerage that exposed me to everything from property showings and negotiations to deal closings. This firsthand experience sparked my passion for both finance and real estate, and I've been fascinated by how these industries intersect and evolve with technology.&lt;/p&gt;</p>
-<p class="p2"><span class="Apple-converted-space">                    </span></p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p&gt;I'm particularly interested in how digital transformation is reshaping the real estate and finance sectors. Social media, data analytics, and emerging technologies are revolutionizing how professionals connect, communicate, and collaborate in these fields. Through this portfolio, you'll find research projects, articles, and creative work that explore these themes while demonstrating my growth as both a student and aspiring professional.&lt;/p&gt;</p>
-<p class="p2"><span class="Apple-converted-space">                    </span></p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p&gt;This e-portfolio showcases the academic and creative work I've completed during my time in Valencia, reflecting not only my coursework but also the unique perspective I've gained from studying abroad and experiencing European culture firsthand.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;section id="project1"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="container"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;h2 class="section-title"&gt;Project 1: Research Paper&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="section-subtitle"&gt;Exploring Social Media's Impact on Real Estate&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="project-card" style="cursor: pointer;" onclick="showFullProject()"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;h3&gt;In what ways does social media and technology influence how real estate investors/brokers connect, communicate, and collaborate?&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="meta"&gt;By Justin Williams | ENC-2135 | Professor Kay&lt;/p&gt;</p>
-<p class="p2"><span class="Apple-converted-space">                </span></p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;p style="font-style: italic; color: #667eea; margin-top: 20px;"&gt;Click to read the full research paper →&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div id="project1-detail" class="artifact-detail hidden"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;a href="javascript:void(0)" onclick="hideFullProject()" class="back-button"&gt;← Back to Summary&lt;/a&gt;</p>
-<p class="p2"><span class="Apple-converted-space">                </span></p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;h3&gt;In what ways does social media and technology influence how real estate investors/brokers connect, communicate, and collaborate?&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="author"&gt;By Justin Williams | ENC-2135 | Professor Kay&lt;/p&gt;</p>
-<p class="p2"><span class="Apple-converted-space">                </span></p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;h4&gt;Introduction&lt;/h4&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;p&gt;Real estate is not just a world where properties are purchased and sold, but it's also a vibrant discourse community that possess specialized language, distinct goals, and shares a lexis. Among real estates many subgroups within the community, is a particular group of investors, brokers, buyers, and sellers who actively integrate social media and digital technologies into the core of their work and lifestyle. This specific discourse community stretches across different cities, states, and even countries, all linked together through shared interests in investments, networking, marketing, and the continual exchange of not just knowledge but also expertise.&lt;/p&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;p&gt;This research project is deeply personal for me as I grew up in the world of real estate. Growing up in Miami with my mom owning a real estate brokerage, Miami Connections Realty, brought exposure to showings, negotiations, and deal closings into my daily life. Observing the success of strategies of top professionals within my mothers company but also with figures such as Todd Nepola. Mr. Nepola is the founder and CEO of Current Capital group and always strongly reinforced the idea that real estate is a network driven field where relationships and reputation are as valuable as any asset. In fact, Mr. Nepola required each of the interns to read How to win friends and influence people just to prove his point that people buy from people they like. Over time, one pattern emerged: the most successful and likeable people in the real estate market were the people who adapted and utilized social media and technology to not just advertise their listings, but to foster a community and build connections.&lt;/p&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;p&gt;With this background, my research was focused particularly on in what ways does social media and technology influence how real estate investors/brokers connect, communicate, and collaborate? The goal was to explore how digital tools such as facebook, instagram, youtube and others have transformed the traditional models of marketing, networking, and information sharing specifically in the world of real estate.&lt;/p&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;h4&gt;Methods&lt;/h4&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;p&gt;The process of research for my project was comprehensive as I aimed for a balanced integration of academic diligence and practical relevance. Sources were selected across three principal categories being Peer-Reviewed Scholarly Articles, Industry publications and professional guides, and reports and case studies. As for Peer-reviewed articles, these works were essential for understanding the broader trends and impacts of social media in the real estate market. The articles had a diverse range of methodology such as systematic literature review, cross-sectional surveys, and quantitative data analysis using PRISMA and SPSS. These sources were reliable and statistically grounded information and insights into overall industry behavior.&lt;/p&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;p&gt;Moreover, Industry publications and professional guides also aided me in my overall research. Credible real estate organizations like the National Association of Realtors often publish valuable content that helps to connect research and practice. These sources provided relevant strategies within the real estate industry, case studies, platform specific guidance, and first hand experience from real estate professionals who are at the forefront of this digital change. Lastly, I used reports and case studies to help me gain insight into the impacts of social media in the real estate market. Real world examples, including boutique real estate firm case studies and success stories from small brokerages, gave me additional layers of evidence depicting how the direct influence of social media can affect real estate brokers, buyers, firms, and others.&lt;/p&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;p&gt;Key academic sources included reports and articles by Deniz Tuzuner, Ebru Zinneha, Mukerrem Yilmaz, and OPELE Adedayo Mathias et al. Their studies addressed not only regional but also global shifts in the real estate market as a result from the boom of social media. Throughout the process, I made an effort to cross-validate my findings, highlight quantitative and qualitative data, as well as focus on materials published rather recently to ensure its relevance and validity.&lt;/p&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;h4&gt;Results&lt;/h4&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;p&gt;The findings in my research provide strong evidence and indicate that social media and technology have critically changed how real estate investors, brokers, firms, and others connect, communicate, and collaborate. Deniz Tuzuner's systematic literature review identifies technologies such as machine learning, neural networks, econometric models, and spatial analysis as tools that are now essential to market forecasting, property valuation, and investment strategy. According to Tuzuner "social media significantly impacts the real estate market in ways such as property valuations, investment decisions, and market predictions." By rapidly spreading information and collecting public sentiment, social media platforms enhance the speed and depth of market adaptations especially during large disruptive events.&lt;/p&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;p&gt;Moving along, Quantitative research by Ebru Zinneha and Mukerren Yilmaz demonstrates the effect of social media on buyers behaviors. Their survey which included data from international consumers indicates that nearly four out of five participants came across real estate listings on social media. On top of this, more than half attributed their final purchase decisions to information that they gathered from those social media platforms. That being said, the most influential platforms were Instagram, Facebook, and Youtube. Consumers valued visual content, price transparency, and location detail. Not only did this research help aid buyers in their decision, but also acted as an educational tool. It helped inform audiences through blogs, influencer advice, and virtual tours which led to more empowered and discerning clients.&lt;/p&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;p&gt;Moreover, OPELE Adedayo Mathias, ODUWOLE Abiodun Ayodeji, and SALAWU Lateef Olamilekan's work highlights how different digital platforms play distinct roles. Facebook was specifically effective for client engagement, WhatsApp for direct listing distribution and sales, and Youtube for brand management and education through virtual tours and testimonials. This information and research shows the importance of relevant, rich content which significantly boosts client interest and lead generation.&lt;/p&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;p&gt;Industry analysis shows that boutique brokerages and small firms also benefit from the strategic use of social media. King and Gibson's work reveals that digital communication allows smaller boutique firms to have a chance to compete with larger firms. Unlike traditional advertising, social media is not only more budget friendly, but also permits direct and frequent engagement with clients. Firms that prioritize responsiveness and adaptability can build a loyal client base and grow exponentially.&lt;/p&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;p&gt;Articles from professional associations emphasize that success in digital real estate marketing, like any other market, requires authentic and value driven content. Focusing on home advice, neighborhood insights, user generated content, and genuine responses to the audience instills a connection between the client and broker, which is essential in the world of real estate. These types of connections and relationships were never previously built through old traditional types of advertising, confirming that social media is significantly impacting the space.&lt;/p&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;p&gt;Finally, present-day reports claim that real estate professionals are more and more turning to social media not just for self promotion or property advertising, but to build their reputation, credibility, and to foster network and connections. Platforms such as LinkedIN are essential for professional branding and collaboration, while instagram and tiktok are often used for market updates, education, and overall storytelling.&lt;/p&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;h4&gt;Discussion&lt;/h4&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;p&gt;Key findings within my research show that social media is no longer a supplementary tool. It is now a central part of success within the market of real estate. It empower investors and brokers to connect with a greater number of people, educate and influence consumer decisions, and create relationships and connections within the field. The evolution of social media in the world of real estate that was documented reflects a trend toward digital transformation acros many fields, with real estate being the forefront. This is due to real estate's new reliance on relationships, information spread, and visual nature of its products. Social media platforms have made all of this possible with ease and efficiency therefore making it so smaller firms can compete with the rest of the market.&lt;/p&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;p&gt;This plays hand in hand with professional reputation starting to become more and more important. This sort of credibility is built not only on local networks but also online with profiles, testimonials and content that shows expertise. Moreover, the variety of digital tools have changed the way communication in the real estate industry is practiced. Transactions now may begin with a simple message on Instagram and conclude through exchanges on DM. This reflects an environment where accessibility, and instant communication define the pace of a business. On top of this, the digital world is lowering barriers to entry, making it overall easier for new professionals to emerge in the space.&lt;/p&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;p&gt;Yet, this transformation still does posses its challenges and drawbacks. The overabundance of information, prevalence of misleading or incomplete listings, and risk of privacy loss and data security are all included with this change of the market. The technological shift means that the most technologically advanced marketers and professionals can dominate the market. These findings matter for several reasons. First, they show the importance of digital literacy in this new technological transformation. Mastery of technology is now as important for successes as negotiation or even market analysis. Second, they highlight the potential for a positive change regarding client experience. Consumers who feel empowered are more likely to make rational, informed, and confident decisions. Finally, the mix between authenticity and commercial interest raises complex questions for the future of the market. How do these brokers balance marketing with meaningful client service?&lt;/p&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;h4&gt;Limitations&lt;/h4&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;p&gt;Despite this strong evidence, certain inherent limitations must be acknowledged. Much of the available literature and research draws from published studies or self reported experiences within the industry that could underrepresent emerging or niche market practices. There may also be a variables that limit generalizability. For example, markets with less common internet access or differing social norms around technology. In addition to the fast changing nature of real estate and technology, todays practices may be seen as completely obsolete in future innovations. Studies focused on specific sets of platforms or analytics methods that could be outdated if user preferences switch.&lt;/p&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;h4&gt;Conclusion&lt;/h4&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;p&gt;Real estate investment and brokerage have always been driven professions, however the rise of social medias and the digital world have defined what it means to connect, communicate, and collaborate in the space. Digital technology and social media platforms have empowered brokers and consumers, enabling a rapid transformation within the field. At the same time however, these tools demand new skills, new thinking, and a commitment to authenticity and ethics. The most successful real estate professionals are those who navigate the new digital world with integrity, creativity, and purpose. Those who realize social media is not only a stage for advertising, but a forum for building an audience with trust and connections.&lt;/p&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;p&gt;As technology continues to evolve, so will this discourse community. This ensures that those who remain adaptable and always favoring the client, will continue to thrive in this field. With this analysis on the market of real estate, the answer to my question is clear: social media and the new digital world shape how real estate investors and brokers connect, communicate, and collaborate.&lt;/p&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;h4&gt;Annotated Bibliography&lt;/h4&gt;</p>
-<p class="p2"><span class="Apple-converted-space">                </span></p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;p&gt;&lt;strong&gt;Tuzuner, Deniz.&lt;/strong&gt; "Effects of Social Media in the Real Estate Market: A Systematic Literature Review." 2024. PDF file.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;p style="padding-left: 30px;"&gt;In this study, Deniz Tuzuner directs a systematic literature review of twelve scholarly studies in order to analyze the influence of social media and technology on the real estate market. Tuzuner uses a methodology known as PRISMA in order to identify key technologies such as machine learning, neural networks, econometric models, and spatial analysis as central tools for evaluating the amount of data generated by social media. The method's results reveal that social media significantly impacts the real estate market in ways such as property valuations, investment decisions, and market predictions.&lt;/p&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;p&gt;&lt;strong&gt;Zinneha, Ebru Jeni, and Mukerrem Yilmaz.&lt;/strong&gt; "The Impact of Social Media Marketing in the Real Estate Sector on Consumer Behavior and Consumer Education." TOJET: The Turkish Online Journal of Educational Technology, vol. 24, no. 2, Apr. 2025. PDF file&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;p style="padding-left: 30px;"&gt;In this article, Ebru Zinneha and Mukerrem Yilmaz dive deep and investigate how social media marketing influences consumer behavior and decision making in the real estate sector. Zinneha and Yilmaz used a quantitative research model, collected survey data from foreign consumers, and analyzed responses with SPSS statistical methods. The study shows that 78.4% of participants have encountered real estate listings on social media, with nearly 57% describing them as influential in purchase decisions.&lt;/p&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;p&gt;&lt;strong&gt;Opele, Adedayo Mathias, Oduwole Abiodun Ayodeji, and Salawu Lateef Olamilekan.&lt;/strong&gt; "Social Media Marketing: A Tool for Real Estate Business Transformation." UJM: Unilag Journal of Management, vol. 3, no. 2, Sept. 2024, pp. 29–46. PDF file.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;p style="padding-left: 30px;"&gt;In this article, OPELE Adedayo Mathias, ODUWOLE Abiodun Ayodeji &amp; SALAWU Lateef Olamilekan, analyze the role of Facebook, WhatsApp, and Youtube in transforming real estate business practices in Lagos, Nigeria. They utilized a cross-sectional survey of 179 members of the Real Estate Developers Association of Nigeria. The study revealed that Facebook improves client engagement, WhatsApp enhances listing and sales volume, and Youtube plays a significant role in brand management through property videos and digital tours.&lt;/p&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;p&gt;&lt;strong&gt;King, Reginald, and Darren Gibson.&lt;/strong&gt; "Enhancing the Success of Small Real Estate Brokerages via Social Media Platforms." American International Journal of Business Management, vol. 7, no. 5, May 2024, pp. 79–85. PDF file.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;p style="padding-left: 30px;"&gt;In the article, King and Gibson dive deep into how different small real estate brokerages can use social media in order to remain competitive in this insanely competitive industry known as real estate. The paper highlights traditional marketing strategies for real estate professionals including open house, brochures, flyers, and television ads. However, it shows how these methods are becoming less and less effective as consumers spend more time online with rapid communication.&lt;/p&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;p&gt;&lt;strong&gt;"Back to Basics: Social Media Marketing for Your Brokerage."&lt;/strong&gt; National Association of Realtors. www.nar.realtor/magazine/broker-news/back-to-basics-social-media-marketing-for-your-brokerage.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;p style="padding-left: 30px;"&gt;This article from the NAR (national association of realtors) explains a overview of how real estate brokerages and firms can strengthen their social media presence and strategies. Rather than focusing exclusively on posting properties, the article emphasizes importance of creating content that adds value to the audience.&lt;/p&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;p&gt;&lt;strong&gt;"How can brokers use social media strategically?"&lt;/strong&gt; Financial Reporter. www.financialreporter.co.uk/blogs/how-can-brokers-use-social-media-strategically.html.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;p style="padding-left: 30px;"&gt;This article shows how real estate as well as financial brokers can leverage social media platforms to their advantage in order to generate leads and authority. The article says that consistency in posting is key and tailoring content to show strengths is most effective.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;section id="artifacts"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="container"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;h2 class="section-title"&gt;Artifacts&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="section-subtitle"&gt;Creative and Academic Work&lt;/p&gt;</p>
-<p class="p2"><span class="Apple-converted-space">            </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="artifacts-grid" id="artifacts-grid"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="artifact-item" onclick="showArtifact('artifact1-detail')"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h3&gt;📄 Artifact 1: Article&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p&gt;&lt;strong&gt;The Cost of Misinformation: Why Real Estate Listings Need to be Transparent&lt;/strong&gt;&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p&gt;An in-depth analysis of deceptive advertising practices in real estate and the importance of maintaining integrity in property listings. This article explores legal</p>
-</body>
-</html>
+    <header>
+        <nav>
+            <div class="logo">Justin Williams</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#project1">Project 1</a></li>
+                <li><a href="#artifacts">Artifacts</a></li>
+                <li><a href="#reflection">Reflection</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        <h1>Justin Williams</h1>
+        <p class="subtitle">Finance Student & Real Estate Enthusiast</p>
+        <p class="course">E-Portfolio for ENC2135 | FSU Valencia Study Abroad Program</p>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <p class="section-subtitle">Getting to know Justin Williams</p>
+            <div class="about-content">
+                <div>
+                    <div style="width: 300px; height: 400px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 15px; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);">
+                        <div style="text-align: center; color: white; padding: 20px;">
+                            <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="12" cy="7" r="4"></circle>
+                            </svg>
+                            <p style="margin-top: 20px; font-size: 14px;">Your Photo</p>
+                            <p style="font-size: 12px; opacity: 0.8; margin-top: 10px;">Replace this URL in the code:<br/>https://i.imgur.com/cENXvVw.jpeg</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-text">
+                    <p>Welcome to my e-portfolio! My name is Justin Williams, and I'm an 18-year-old Finance major from Miami, Florida, currently studying at Florida State University. This semester, I've had the incredible opportunity to study abroad in Valencia, Spain, where I've been enrolled in the ENC2135 course that inspired this digital portfolio.</p>
+                    
+                    <p>Growing up in Miami, I was immersed in the world of real estate from an early age. My mother owns Miami Connections Realty, a real estate brokerage that exposed me to everything from property showings and negotiations to deal closings. This firsthand experience sparked my passion for both finance and real estate, and I've been fascinated by how these industries intersect and evolve with technology.</p>
+                    
+                    <p>I'm particularly interested in how digital transformation is reshaping the real estate and finance sectors. Social media, data analytics, and emerging technologies are revolutionizing how professionals connect, communicate, and collaborate in these fields. Through this portfolio, you'll find research projects, articles, and creative work that explore these themes while demonstrating my growth as both a student and aspiring professional.</p>
+                    
+                    <p>This e-portfolio showcases the academic and creative work I've completed during my time in Valencia, reflecting not only my coursework but also the unique perspective I've gained from studying abroad and experiencing European culture firsthand.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="project1">
+        <div class="container">
+            <h2 class="section-title">Project 1: Research Paper</h2>
+            <p class="section-subtitle">Exploring Social Media's Impact on Real Estate</p>
+            <div class="project-card" style="cursor: pointer;" onclick="showFullProject()">
+                <h3>In what ways does social media and technology influence how real estate investors/brokers connect, communicate, and collaborate?</h3>
+                <p class="meta">By Justin Williams | ENC-2135 | Professor Kay</p>
+                
+                <p style="font-style: italic; color: #667eea; margin-top: 20px;">Click to read the full research paper →</p>
+            </div>
+
+            <div id="project1-detail" class="artifact-detail hidden">
+                <a href="javascript:void(0)" onclick="hideFullProject()" class="back-button">← Back to Summary</a>
+                
+                <h3>In what ways does social media and technology influence how real estate investors/brokers connect, communicate, and collaborate?</h3>
+                <p class="author">By Justin Williams | ENC-2135 | Professor Kay</p>
+                
+                <h4>Introduction</h4>
+                <p>Real estate is not just a world where properties are purchased and sold, but it's also a vibrant discourse community that possess specialized language, distinct goals, and shares a lexis. Among real estates many subgroups within the community, is a particular group of investors, brokers, buyers, and sellers who actively integrate social media and digital technologies into the core of their work and lifestyle. This specific discourse community stretches across different cities, states, and even countries, all linked together through shared interests in investments, networking, marketing, and the continual exchange of not just knowledge but also expertise.</p>
+
+                <p>This research project is deeply personal for me as I grew up in the world of real estate. Growing up in Miami with my mom owning a real estate brokerage, Miami Connections Realty, brought exposure to showings, negotiations, and deal closings into my daily life. Observing the success of strategies of top professionals within my mothers company but also with figures such as Todd Nepola. Mr. Nepola is the founder and CEO of Current Capital group and always strongly reinforced the idea that real estate is a network driven field where relationships and reputation are as valuable as any asset. In fact, Mr. Nepola required each of the interns to read How to win friends and influence people just to prove his point that people buy from people they like. Over time, one pattern emerged: the most successful and likeable people in the real estate market were the people who adapted and utilized social media and technology to not just advertise their listings, but to foster a community and build connections.</p>
+
+                <p>With this background, my research was focused particularly on in what ways does social media and technology influence how real estate investors/brokers connect, communicate, and collaborate? The goal was to explore how digital tools such as facebook, instagram, youtube and others have transformed the traditional models of marketing, networking, and information sharing specifically in the world of real estate.</p>
+
+                <h4>Methods</h4>
+                <p>The process of research for my project was comprehensive as I aimed for a balanced integration of academic diligence and practical relevance. Sources were selected across three principal categories being Peer-Reviewed Scholarly Articles, Industry publications and professional guides, and reports and case studies. As for Peer-reviewed articles, these works were essential for understanding the broader trends and impacts of social media in the real estate market. The articles had a diverse range of methodology such as systematic literature review, cross-sectional surveys, and quantitative data analysis using PRISMA and SPSS. These sources were reliable and statistically grounded information and insights into overall industry behavior.</p>
+
+                <p>Moreover, Industry publications and professional guides also aided me in my overall research. Credible real estate organizations like the National Association of Realtors often publish valuable content that helps to connect research and practice. These sources provided relevant strategies within the real estate industry, case studies, platform specific guidance, and first hand experience from real estate professionals who are at the forefront of this digital change. Lastly, I used reports and case studies to help me gain insight into the impacts of social media in the real estate market. Real world examples, including boutique real estate firm case studies and success stories from small brokerages, gave me additional layers of evidence depicting how the direct influence of social media can affect real estate brokers, buyers, firms, and others.</p>
+
+                <p>Key academic sources included reports and articles by Deniz Tuzuner, Ebru Zinneha, Mukerrem Yilmaz, and OPELE Adedayo Mathias et al. Their studies addressed not only regional but also global shifts in the real estate market as a result from the boom of social media. Throughout the process, I made an effort to cross-validate my findings, highlight quantitative and qualitative data, as well as focus on materials published rather recently to ensure its relevance and validity.</p>
+
+                <h4>Results</h4>
+                <p>The findings in my research provide strong evidence and indicate that social media and technology have critically changed how real estate investors, brokers, firms, and others connect, communicate, and collaborate. Deniz Tuzuner's systematic literature review identifies technologies such as machine learning, neural networks, econometric models, and spatial analysis as tools that are now essential to market forecasting, property valuation, and investment strategy. According to Tuzuner "social media significantly impacts the real estate market in ways such as property valuations, investment decisions, and market predictions." By rapidly spreading information and collecting public sentiment, social media platforms enhance the speed and depth of market adaptations especially during large disruptive events.</p>
+
+                <p>Moving along, Quantitative research by Ebru Zinneha and Mukerren Yilmaz demonstrates the effect of social media on buyers behaviors. Their survey which included data from international consumers indicates that nearly four out of five participants came across real estate listings on social media. On top of this, more than half attributed their final purchase decisions to information that they gathered from those social media platforms. That being said, the most influential platforms were Instagram, Facebook, and Youtube. Consumers valued visual content, price transparency, and location detail. Not only did this research help aid buyers in their decision, but also acted as an educational tool. It helped inform audiences through blogs, influencer advice, and virtual tours which led to more empowered and discerning clients.</p>
+
+                <p>Moreover, OPELE Adedayo Mathias, ODUWOLE Abiodun Ayodeji, and SALAWU Lateef Olamilekan's work highlights how different digital platforms play distinct roles. Facebook was specifically effective for client engagement, WhatsApp for direct listing distribution and sales, and Youtube for brand management and education through virtual tours and testimonials. This information and research shows the importance of relevant, rich content which significantly boosts client interest and lead generation.</p>
+
+                <p>Industry analysis shows that boutique brokerages and small firms also benefit from the strategic use of social media. King and Gibson's work reveals that digital communication allows smaller boutique firms to have a chance to compete with larger firms. Unlike traditional advertising, social media is not only more budget friendly, but also permits direct and frequent engagement with clients. Firms that prioritize responsiveness and adaptability can build a loyal client base and grow exponentially.</p>
+
+                <p>Articles from professional associations emphasize that success in digital real estate marketing, like any other market, requires authentic and value driven content. Focusing on home advice, neighborhood insights, user generated content, and genuine responses to the audience instills a connection between the client and broker, which is essential in the world of real estate. These types of connections and relationships were never previously built through old traditional types of advertising, confirming that social media is significantly impacting the space.</p>
+
+                <p>Finally, present-day reports claim that real estate professionals are more and more turning to social media not just for self promotion or property advertising, but to build their reputation, credibility, and to foster network and connections. Platforms such as LinkedIN are essential for professional branding and collaboration, while instagram and tiktok are often used for market updates, education, and overall storytelling.</p>
+
+                <h4>Discussion</h4>
+                <p>Key findings within my research show that social media is no longer a supplementary tool. It is now a central part of success within the market of real estate. It empower investors and brokers to connect with a greater number of people, educate and influence consumer decisions, and create relationships and connections within the field. The evolution of social media in the world of real estate that was documented reflects a trend toward digital transformation acros many fields, with real estate being the forefront. This is due to real estate's new reliance on relationships, information spread, and visual nature of its products. Social media platforms have made all of this possible with ease and efficiency therefore making it so smaller firms can compete with the rest of the market.</p>
+
+                <p>This plays hand in hand with professional reputation starting to become more and more important. This sort of credibility is built not only on local networks but also online with profiles, testimonials and content that shows expertise. Moreover, the variety of digital tools have changed the way communication in the real estate industry is practiced. Transactions now may begin with a simple message on Instagram and conclude through exchanges on DM. This reflects an environment where accessibility, and instant communication define the pace of a business. On top of this, the digital world is lowering barriers to entry, making it overall easier for new professionals to emerge in the space.</p>
+
+                <p>Yet, this transformation still does posses its challenges and drawbacks. The overabundance of information, prevalence of misleading or incomplete listings, and risk of privacy loss and data security are all included with this change of the market. The technological shift means that the most technologically advanced marketers and professionals can dominate the market. These findings matter for several reasons. First, they show the importance of digital literacy in this new technological transformation. Mastery of technology is now as important for successes as negotiation or even market analysis. Second, they highlight the potential for a positive change regarding client experience. Consumers who feel empowered are more likely to make rational, informed, and confident decisions. Finally, the mix between authenticity and commercial interest raises complex questions for the future of the market. How do these brokers balance marketing with meaningful client service?</p>
+
+                <h4>Limitations</h4>
+                <p>Despite this strong evidence, certain inherent limitations must be acknowledged. Much of the available literature and research draws from published studies or self reported experiences within the industry that could underrepresent emerging or niche market practices. There may also be a variables that limit generalizability. For example, markets with less common internet access or differing social norms around technology. In addition to the fast changing nature of real estate and technology, todays practices may be seen as completely obsolete in future innovations. Studies focused on specific sets of platforms or analytics methods that could be outdated if user preferences switch.</p>
+
+                <h4>Conclusion</h4>
+                <p>Real estate investment and brokerage have always been driven professions, however the rise of social medias and the digital world have defined what it means to connect, communicate, and collaborate in the space. Digital technology and social media platforms have empowered brokers and consumers, enabling a rapid transformation within the field. At the same time however, these tools demand new skills, new thinking, and a commitment to authenticity and ethics. The most successful real estate professionals are those who navigate the new digital world with integrity, creativity, and purpose. Those who realize social media is not only a stage for advertising, but a forum for building an audience with trust and connections.</p>
+
+                <p>As technology continues to evolve, so will this discourse community. This ensures that those who remain adaptable and always favoring the client, will continue to thrive in this field. With this analysis on the market of real estate, the answer to my question is clear: social media and the new digital world shape how real estate investors and brokers connect, communicate, and collaborate.</p>
+
+                <h4>Annotated Bibliography</h4>
+                
+                <p><strong>Tuzuner, Deniz.</strong> "Effects of Social Media in the Real Estate Market: A Systematic Literature Review." 2024. PDF file.</p>
+                <p style="padding-left: 30px;">In this study, Deniz Tuzuner directs a systematic literature review of twelve scholarly studies in order to analyze the influence of social media and technology on the real estate market. Tuzuner uses a methodology known as PRISMA in order to identify key technologies such as machine learning, neural networks, econometric models, and spatial analysis as central tools for evaluating the amount of data generated by social media. The method's results reveal that social media significantly impacts the real estate market in ways such as property valuations, investment decisions, and market predictions.</p>
+
+                <p><strong>Zinneha, Ebru Jeni, and Mukerrem Yilmaz.</strong> "The Impact of Social Media Marketing in the Real Estate Sector on Consumer Behavior and Consumer Education." TOJET: The Turkish Online Journal of Educational Technology, vol. 24, no. 2, Apr. 2025. PDF file</p>
+                <p style="padding-left: 30px;">In this article, Ebru Zinneha and Mukerrem Yilmaz dive deep and investigate how social media marketing influences consumer behavior and decision making in the real estate sector. Zinneha and Yilmaz used a quantitative research model, collected survey data from foreign consumers, and analyzed responses with SPSS statistical methods. The study shows that 78.4% of participants have encountered real estate listings on social media, with nearly 57% describing them as influential in purchase decisions.</p>
+
+                <p><strong>Opele, Adedayo Mathias, Oduwole Abiodun Ayodeji, and Salawu Lateef Olamilekan.</strong> "Social Media Marketing: A Tool for Real Estate Business Transformation." UJM: Unilag Journal of Management, vol. 3, no. 2, Sept. 2024, pp. 29–46. PDF file.</p>
+                <p style="padding-left: 30px;">In this article, OPELE Adedayo Mathias, ODUWOLE Abiodun Ayodeji & SALAWU Lateef Olamilekan, analyze the role of Facebook, WhatsApp, and Youtube in transforming real estate business practices in Lagos, Nigeria. They utilized a cross-sectional survey of 179 members of the Real Estate Developers Association of Nigeria. The study revealed that Facebook improves client engagement, WhatsApp enhances listing and sales volume, and Youtube plays a significant role in brand management through property videos and digital tours.</p>
+
+                <p><strong>King, Reginald, and Darren Gibson.</strong> "Enhancing the Success of Small Real Estate Brokerages via Social Media Platforms." American International Journal of Business Management, vol. 7, no. 5, May 2024, pp. 79–85. PDF file.</p>
+                <p style="padding-left: 30px;">In the article, King and Gibson dive deep into how different small real estate brokerages can use social media in order to remain competitive in this insanely competitive industry known as real estate. The paper highlights traditional marketing strategies for real estate professionals including open house, brochures, flyers, and television ads. However, it shows how these methods are becoming less and less effective as consumers spend more time online with rapid communication.</p>
+
+                <p><strong>"Back to Basics: Social Media Marketing for Your Brokerage."</strong> National Association of Realtors. www.nar.realtor/magazine/broker-news/back-to-basics-social-media-marketing-for-your-brokerage.</p>
+                <p style="padding-left: 30px;">This article from the NAR (national association of realtors) explains a overview of how real estate brokerages and firms can strengthen their social media presence and strategies. Rather than focusing exclusively on posting properties, the article emphasizes importance of creating content that adds value to the audience.</p>
+
+                <p><strong>"How can brokers use social media strategically?"</strong> Financial Reporter. www.financialreporter.co.uk/blogs/how-can-brokers-use-social-media-strategically.html.</p>
+                <p style="padding-left: 30px;">This article shows how real estate as well as financial brokers can leverage social media platforms to their advantage in order to generate leads and authority. The article says that consistency in posting is key and tailoring content to show strengths is most effective.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="artifacts">
+        <div class="container">
+            <h2 class="section-title">Artifacts</h2>
+            <p class="section-subtitle">Creative and Academic Work</p>
+            
+            <div class="artifacts-grid" id="artifacts-grid">
+                <div class="artifact-item" onclick="showArtifact('artifact1-detail')">
+                    <h3>📄 Artifact 1: Article</h3>
+                    <p><strong>The Cost of Misinformation: Why Real Estate Listings Need to be Transparent</strong></p>
+                    <p>An in-depth analysis of deceptive advertising practices in real estate and the importance of maintaining integrity in property listings. This article explores legal
