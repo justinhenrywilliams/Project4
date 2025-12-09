@@ -15,14 +15,14 @@
         }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-family: 'Inter', sans-serif;
             color: #2c3e50;
             line-height: 1.6;
             background: #f8f9fa;
         }
 
         header {
-            background: #003366; /* Navy Blue */
+            background: navy;
             padding: 20px 0;
             box-shadow: 0 4px 12px rgba(0,0,0,0.15);
             position: sticky;
@@ -66,22 +66,46 @@
             border-bottom: 2px solid white;
         }
 
+        .hero {
+            background: navy;
+            color: white;
+            padding: 100px 30px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 4em;
+            font-weight: 800;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .hero .subtitle {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            opacity: 0.95;
+        }
+
+        .hero .course {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+
         section {
             padding: 80px 0;
-        }
-
-        #about {
-            background: white;
-        }
-
-        #project1, #artifacts, #reflection {
-            background: #f8f9fa;
         }
 
         .section-title {
             font-family: 'Playfair Display', Georgia, serif;
             font-size: 2.5em;
-            color: #003366;
+            color: navy;
             margin-bottom: 15px;
             font-weight: 800;
         }
@@ -92,7 +116,41 @@
             margin-bottom: 40px;
         }
 
-        .project-card, .artifact-item {
+        #about {
+            background: white;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 50px;
+            align-items: start;
+        }
+
+        .about-image {
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+            transition: transform 0.3s;
+        }
+
+        .about-image:hover {
+            transform: scale(1.02);
+        }
+
+        .about-text p {
+            font-size: 1.1em;
+            line-height: 1.9;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        #project1 {
+            background: #f8f9fa;
+        }
+
+        .project-card {
             background: white;
             padding: 50px;
             border-radius: 15px;
@@ -101,21 +159,68 @@
             cursor: pointer;
         }
 
-        .project-card h3, .artifact-item h3 {
+        .project-card h3 {
             font-size: 2em;
-            color: #003366;
+            color: navy;
             margin-bottom: 20px;
         }
 
-        .project-card p, .artifact-item p {
+        .project-card .meta {
+            color: #5a67d8;
+            font-style: italic;
+            margin-bottom: 30px;
+            font-size: 1.05em;
+        }
+
+        .project-card h4 {
+            font-size: 1.5em;
+            color: #2c3e50;
+            margin: 30px 0 15px 0;
+        }
+
+        .project-card p {
             font-size: 1.05em;
             line-height: 1.8;
             color: #2c3e50;
             margin-bottom: 20px;
         }
 
-        .hidden {
-            display: none;
+        #artifacts {
+            background: white;
+        }
+
+        .artifacts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 40px;
+        }
+
+        .artifact-item {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            padding: 40px;
+            border-radius: 15px;
+            color: white;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+            text-decoration: none;
+            display: block;
+        }
+
+        .artifact-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+        }
+
+        .artifact-item h3 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            color: white;
+        }
+
+        .artifact-item p {
+            font-size: 1.05em;
+            line-height: 1.6;
+            color: white;
         }
 
         .artifact-detail {
@@ -129,7 +234,7 @@
         .artifact-detail h3 {
             font-family: 'Playfair Display', Georgia, serif;
             font-size: 2.2em;
-            color: #003366;
+            color: navy;
             margin-bottom: 10px;
         }
 
@@ -140,8 +245,23 @@
             font-size: 1.05em;
         }
 
+        .artifact-detail h4 {
+            font-size: 1.6em;
+            color: #2c3e50;
+            margin: 35px 0 15px 0;
+            font-weight: 600;
+        }
+
+        .artifact-detail p {
+            font-size: 1.05em;
+            line-height: 1.9;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
         footer {
-            background: #003366;
+            background: navy;
             color: white;
             padding: 50px 30px;
             text-align: center;
@@ -174,64 +294,31 @@
             font-size: 14px;
             opacity: 0.9;
         }
-
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5em;
-            }
-
-            .artifacts-grid {
-                grid-template-columns: 1fr;
-            }
-        }
     </style>
     <script>
-        // Show full content for Project 1
-        function showProject1() {
+        function showArtifact(artifactId) {
+            document.getElementById('artifacts-grid').classList.add('hidden');
+            document.querySelectorAll('.artifact-detail').forEach(el => {
+                el.classList.add('hidden');
+            });
+            document.getElementById(artifactId).classList.remove('hidden');
+        }
+
+        function showArtifactsGrid() {
+            document.getElementById('artifacts-grid').classList.remove('hidden');
+            document.querySelectorAll('.artifact-detail').forEach(el => {
+                el.classList.add('hidden');
+            });
+        }
+
+        function showFullProject() {
+            document.querySelector('#project1 .project-card').classList.add('hidden');
             document.getElementById('project1-detail').classList.remove('hidden');
-            document.getElementById('project1').classList.add('hidden');
         }
 
-        // Hide full content for Project 1
-        function hideProject1() {
+        function hideFullProject() {
+            document.querySelector('#project1 .project-card').classList.remove('hidden');
             document.getElementById('project1-detail').classList.add('hidden');
-            document.getElementById('project1').classList.remove('hidden');
-        }
-
-        // Show full content for Artifact 1
-        function showArtifact1() {
-            document.getElementById('artifact1-detail').classList.remove('hidden');
-            document.getElementById('artifact1').classList.add('hidden');
-        }
-
-        // Hide full content for Artifact 1
-        function hideArtifact1() {
-            document.getElementById('artifact1-detail').classList.add('hidden');
-            document.getElementById('artifact1').classList.remove('hidden');
-        }
-
-        // Show full content for Artifact 2
-        function showArtifact2() {
-            document.getElementById('artifact2-detail').classList.remove('hidden');
-            document.getElementById('artifact2').classList.add('hidden');
-        }
-
-        // Hide full content for Artifact 2
-        function hideArtifact2() {
-            document.getElementById('artifact2-detail').classList.add('hidden');
-            document.getElementById('artifact2').classList.remove('hidden');
-        }
-
-        // Show the full Reflection
-        function showReflection() {
-            document.getElementById('reflection-detail').classList.remove('hidden');
-            document.getElementById('reflection').classList.add('hidden');
-        }
-
-        // Hide full Reflection
-        function hideReflection() {
-            document.getElementById('reflection-detail').classList.add('hidden');
-            document.getElementById('reflection').classList.remove('hidden');
         }
     </script>
 </head>
@@ -240,13 +327,21 @@
         <nav>
             <div class="logo">Justin Williams</div>
             <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#project1">Project 1</a></li>
                 <li><a href="#artifacts">Artifacts</a></li>
                 <li><a href="#reflection">Reflection</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
     </header>
+
+    <section class="hero" id="home">
+        <h1>Justin Williams</h1>
+        <p class="subtitle">Finance Student & Real Estate Enthusiast</p>
+        <p class="course">E-Portfolio for ENC2135 | FSU Valencia Study Abroad Program</p>
+    </section>
 
     <section id="about">
         <div class="container">
@@ -254,10 +349,16 @@
             <p class="section-subtitle">Getting to know Justin Williams</p>
             <div class="about-content">
                 <div>
-                    <img src="https://i.imgur.com/k7apWZD.jpg" alt="Justin Williams" class="about-image">
+                    <img src="https://i.imgur.com/cENXvVw.jpeg" alt="Justin Williams" class="about-image">
                 </div>
                 <div class="about-text">
-                    <p>Welcome to my e-portfolio! My name is Justin Williams, and I'm an 18-year-old Finance major from Miami, Florida, currently studying at Florida State University...</p>
+                    <p>Welcome to my e-portfolio! My name is Justin Williams, and I'm an 18-year-old Finance major from Miami, Florida, currently studying at Florida State University. This semester, I've had the incredible opportunity to study abroad in Valencia, Spain, where I've been enrolled in the ENC2135 course that inspired this digital portfolio.</p>
+                    
+                    <p>Growing up in Miami, I was immersed in the world of real estate from an early age. My mother owns Miami Connections Realty, a real estate brokerage that exposed me to everything from property showings and negotiations to deal closings. This firsthand experience sparked my passion for both finance and real estate, and I've been fascinated by how these industries intersect and evolve with technology.</p>
+                    
+                    <p>I'm particularly interested in how digital transformation is reshaping the real estate and finance sectors. Social media, data analytics, and emerging technologies are revolutionizing how professionals connect, communicate, and collaborate in these fields. Through this portfolio, you'll find research projects, articles, and creative work that explore these themes while demonstrating my growth as both a student and aspiring professional.</p>
+                    
+                    <p>This e-portfolio showcases the academic and creative work I've completed during my time in Valencia, reflecting not only my coursework but also the unique perspective I've gained from studying abroad and experiencing European culture firsthand.</p>
                 </div>
             </div>
         </div>
@@ -266,18 +367,20 @@
     <section id="project1">
         <div class="container">
             <h2 class="section-title">Project 1: Research Paper</h2>
-            <div id="project1" class="project-card" onclick="showProject1()">
+            <p class="section-subtitle">Exploring Social Media's Impact on Real Estate</p>
+            <div class="project-card" onclick="showFullProject()">
                 <h3>In what ways does social media and technology influence how real estate investors/brokers connect, communicate, and collaborate?</h3>
                 <p class="meta">By Justin Williams | ENC-2135 | Professor Kay</p>
-                <p style="font-style: italic; color: #003366; margin-top: 20px;">Click to read the full research paper →</p>
+                <p style="font-style: italic; color: #667eea; margin-top: 20px;">Click to read the full research paper →</p>
             </div>
 
+            <!-- Full Project Detail -->
             <div id="project1-detail" class="artifact-detail hidden">
-                <a href="javascript:void(0)" onclick="hideProject1()" class="back-button">← Back to Summary</a>
+                <a href="javascript:void(0)" onclick="hideFullProject()" class="back-button">← Back to Summary</a>
                 <h3>In what ways does social media and technology influence how real estate investors/brokers connect, communicate, and collaborate?</h3>
                 <p class="author">By Justin Williams | ENC-2135 | Professor Kay</p>
-                <h4>Introduction</h4>
-                <p>Real estate is not just a world where properties are purchased and sold, but it's also a vibrant discourse community...</p>
+                <!-- Full Project Content Here -->
+                <p>Throughout my research, I have explored various technological advancements in real estate...</p>
             </div>
         </div>
     </section>
@@ -286,50 +389,53 @@
         <div class="container">
             <h2 class="section-title">Artifacts</h2>
             <p class="section-subtitle">Creative and Academic Work</p>
-            <div id="artifact1" class="artifact-item" onclick="showArtifact1()">
-                <h3>📄 Artifact 1: Article</h3>
-                <p><strong>The Cost of Misinformation: Why Real Estate Listings Need to be Transparent</strong></p>
-                <p>An in-depth analysis of deceptive advertising practices in real estate and the importance of maintaining integrity in property listings.</p>
-            </div>
-            <div id="artifact1-detail" class="artifact-detail hidden">
-                <a href="javascript:void(0)" onclick="hideArtifact1()" class="back-button">← Back to Artifacts</a>
-                <h3>The Cost of Misinformation: Why Real Estate Listings Need to be Transparent</h3>
-                <p class="author">By Justin Williams | April 24, 2024</p>
-                <p>This article discusses deceptive advertising in the real estate industry and how misinformation can be harmful to both buyers and sellers...</p>
+            
+            <div class="artifacts-grid" id="artifacts-grid">
+                <div class="artifact-item" onclick="showArtifact('artifact1-detail')">
+                    <h3>📄 Artifact 1: Article</h3>
+                    <p><strong>The Cost of Misinformation: Why Real Estate Listings Need to be Transparent</strong></p>
+                    <p>An in-depth analysis of deceptive advertising practices in real estate and the importance of maintaining integrity in property listings...</p>
+                </div>
+                <div class="artifact-item" onclick="showArtifact('artifact2-detail')">
+                    <h3>📊 Artifact 2: Infographic</h3>
+                    <p><strong>Spotting Misinformation in Real Estate</strong></p>
+                    <p>A visual guide designed to help buyers and sellers identify misleading information...</p>
+                </div>
             </div>
 
-            <div id="artifact2" class="artifact-item" onclick="showArtifact2()">
-                <h3>📊 Artifact 2: Infographic</h3>
-                <p><strong>Spotting Misinformation in Real Estate</strong></p>
-                <p>A visual guide to help buyers and sellers identify misleading information in real estate listings.</p>
+            <!-- Artifact 1 Detail -->
+            <div id="artifact1-detail" class="artifact-detail hidden">
+                <a href="javascript:void(0)" onclick="showArtifactsGrid()" class="back-button">← Back to Artifacts</a>
+                <h3>The Cost of Misinformation: Why Real Estate Listings Need to be Transparent</h3>
+                <p class="author">By Justin Williams | April 24, 2024</p>
+                <p>In the modern era of real estate, deceptive advertising practices in listings are becoming more common. This article explores how misinformation leads to wasted time...</p>
             </div>
+
+            <!-- Artifact 2 Detail -->
             <div id="artifact2-detail" class="artifact-detail hidden">
-                <a href="javascript:void(0)" onclick="hideArtifact2()" class="back-button">← Back to Artifacts</a>
+                <a href="javascript:void(0)" onclick="showArtifactsGrid()" class="back-button">← Back to Artifacts</a>
                 <h3>Spotting Misinformation in Real Estate</h3>
                 <p class="author">Infographic by Justin Williams</p>
                 <img src="https://i.imgur.com/k7apWZD.jpg" alt="Spotting Misinformation Infographic" class="infographic-image">
+                <p>This infographic helps identify misleading practices in real estate listings...</p>
             </div>
         </div>
     </section>
 
-    <section id="reflection">
+    <section id="reflection" style="background: #f8f9fa;">
         <div class="container">
             <h2 class="section-title">Reflection</h2>
-            <div id="reflection" class="project-card" onclick="showReflection()">
-                <p>Click to read my full reflection on the ENC2135 course...</p>
-                <p style="font-style: italic; color: #003366; margin-top: 20px;">Click to read the full reflection →</p>
-            </div>
-            <div id="reflection-detail" class="artifact-detail hidden">
-                <a href="javascript:void(0)" onclick="hideReflection()" class="back-button">← Back to Reflection</a>
-                <h3>Reflection on ENC2135</h3>
-                <p>Throughout the semester in the class ENC 2135, I have been able to cultivate a great deal of skill in terms of my research, writing...</p>
+            <p class="section-subtitle">Insights from ENC2135</p>
+            <div class="project-card">
+                <p>Throughout the semester in the class ENC 2135, I have been able to cultivate a great deal of skill in terms of my research...</p>
+                <p>This experience has allowed me to adjust my writing across genres, improving my academic and creative capabilities...</p>
             </div>
         </div>
     </section>
 
     <footer>
         <div class="footer-content">
-            <h2 style="margin-bottom: 30px; font-size: 2em;">Get In Touch</h2>
+            <h2 style="margin-bottom: 30px;">Get In Touch</h2>
             <div class="footer-links">
                 <a href="#home">Home</a>
                 <a href="#about">About</a>
